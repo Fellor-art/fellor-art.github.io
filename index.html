@@ -1,251 +1,915 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fellor | Pixel Art VFX Artist</title>
+    <meta
+        name="description"
+        content="Fellor is a Hungarian pixel artist and animator specializing in pixel art VFX, Unity assets and game development."
+    >
 
-<style>
-* {
-    box-sizing: border-box;
-}
+    <title>Fellor | Pixel Art VFX Artist</title>
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #0f172a;
-    color: #f8fafc;
-    line-height: 1.6;
-}
+    <style>
+        :root {
+            --background: #070b14;
+            --background-secondary: #0d1422;
+            --card: #131d2d;
+            --card-hover: #19263a;
+            --border: #26354d;
+            --text: #f4f7fb;
+            --text-secondary: #aebbd0;
+            --blue: #4d94ff;
+            --purple: #8b5cf6;
+            --cyan: #4dd6ff;
+            --green: #4ade80;
+            --shadow: rgba(0, 0, 0, 0.35);
+        }
 
-header {
-    padding: 80px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #7c3aed, #2563eb);
-}
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-header h1 {
-    margin: 0;
-    font-size: 64px;
-}
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(87, 50, 180, 0.12), transparent 34%),
+                radial-gradient(circle at top right, rgba(37, 99, 235, 0.12), transparent 32%),
+                var(--background);
+            color: var(--text);
+            line-height: 1.65;
+        }
 
-header p {
-    margin: 10px 0 0;
-    font-size: 22px;
-    opacity: 0.92;
-}
+        a {
+            color: inherit;
+        }
 
-main {
-    max-width: 1100px;
-    margin: auto;
-    padding: 50px 20px;
-}
+        img {
+            max-width: 100%;
+        }
 
-.card {
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 16px;
-    margin-bottom: 28px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-}
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+        }
 
-h2 {
-    margin-top: 0;
-    color: #60a5fa;
-}
+        /* Navigation */
 
-.skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 14px;
-}
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(7, 11, 20, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
 
-.skill {
-    background: #273449;
-    padding: 14px 16px;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
-}
+        .nav-content {
+            min-height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 18px;
-}
+        .brand {
+            font-size: 22px;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
 
-.gallery-item {
-    background: #273449;
-    border-radius: 14px;
-    overflow: hidden;
-}
+        .brand span {
+            color: var(--blue);
+        }
 
-.gallery-item img {
-    display: block;
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    image-rendering: pixelated;
-}
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
 
-.gallery-item p {
-    margin: 0;
-    padding: 14px;
-    text-align: center;
-    font-weight: bold;
-}
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
 
-.buttons {
-    text-align: center;
-    margin-top: 30px;
-}
+        .nav-links a:hover {
+            color: white;
+        }
 
-.button {
-    display: inline-block;
-    margin: 8px;
-    padding: 14px 24px;
-    background: #2563eb;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: 0.2s;
-}
+        /* Hero */
 
-.button:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-}
+        .hero {
+            min-height: 610px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 100px 0 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
 
-.email {
-    color: #93c5fd;
-    text-decoration: none;
-    font-weight: bold;
-}
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-footer {
-    text-align: center;
-    padding: 35px 20px;
-    color: #94a3b8;
-}
+        .eyebrow {
+            display: inline-block;
+            padding: 8px 14px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(77, 148, 255, 0.35);
+            border-radius: 999px;
+            background: rgba(77, 148, 255, 0.08);
+            color: #94bdff;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
 
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 46px;
-    }
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(58px, 9vw, 104px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            background: linear-gradient(135deg, #ffffff, #92baff 52%, #b89cff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-    header p {
-        font-size: 18px;
-    }
+        .hero h2 {
+            margin: 24px 0 0;
+            font-size: clamp(22px, 4vw, 34px);
+            font-weight: 700;
+        }
 
-    .card {
-        padding: 22px;
-    }
-}
-</style>
+        .hero h2 span {
+            color: var(--blue);
+        }
+
+        .hero-description {
+            max-width: 720px;
+            margin: 22px auto 0;
+            color: var(--text-secondary);
+            font-size: 18px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 22px;
+            border-radius: 10px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, #377dff, #6d4aff);
+            color: white;
+            box-shadow: 0 10px 30px rgba(57, 114, 255, 0.28);
+        }
+
+        .button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px rgba(57, 114, 255, 0.38);
+        }
+
+        .button-secondary {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: white;
+        }
+
+        .button-secondary:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* General sections */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 38px;
+        }
+
+        .section-label {
+            margin: 0 0 10px;
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: clamp(34px, 5vw, 52px);
+            line-height: 1.1;
+        }
+
+        .section-heading p {
+            max-width: 760px;
+            margin: 16px 0 0;
+            color: var(--text-secondary);
+            font-size: 17px;
+        }
+
+        /* About */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 0.65fr;
+            gap: 24px;
+        }
+
+        .panel {
+            background: linear-gradient(145deg, rgba(22, 33, 51, 0.95), rgba(15, 24, 39, 0.95));
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 18px 45px var(--shadow);
+        }
+
+        .panel h3 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            font-size: 23px;
+        }
+
+        .panel p {
+            margin: 0 0 16px;
+            color: var(--text-secondary);
+        }
+
+        .panel p:last-child {
+            margin-bottom: 0;
+        }
+
+        .stats {
+            display: grid;
+            gap: 14px;
+        }
+
+        .stat {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 28px;
+            color: white;
+        }
+
+        .stat span {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* VFX gallery */
+
+        .vfx-section {
+            background: rgba(255, 255, 255, 0.015);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .vfx-card {
+            overflow: hidden;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: 0 16px 40px var(--shadow);
+            transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        }
+
+        .vfx-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(77, 148, 255, 0.55);
+            background: var(--card-hover);
+        }
+
+        .vfx-image {
+            height: 310px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            background:
+                linear-gradient(45deg, #0a0f19 25%, transparent 25%),
+                linear-gradient(-45deg, #0a0f19 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #0a0f19 75%),
+                linear-gradient(-45deg, transparent 75%, #0a0f19 75%),
+                #0d1421;
+            background-size: 22px 22px;
+            background-position: 0 0, 0 11px, 11px -11px, -11px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .vfx-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            image-rendering: pixelated;
+        }
+
+        .vfx-info {
+            padding: 20px 22px 22px;
+        }
+
+        .vfx-info h3 {
+            margin: 0;
+            font-size: 21px;
+        }
+
+        .vfx-info p {
+            margin: 7px 0 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* BitBeasts */
+
+        .bitbeasts-wrapper {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            border-radius: 24px;
+            background:
+                radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.22), transparent 32%),
+                radial-gradient(circle at 10% 90%, rgba(37, 99, 235, 0.18), transparent 35%),
+                #101827;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+        }
+
+        .bitbeasts-image {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+            background: rgba(0, 0, 0, 0.18);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .bitbeasts-image img {
+            width: 100%;
+            max-height: 520px;
+            object-fit: contain;
+            border-radius: 14px;
+            image-rendering: pixelated;
+        }
+
+        .bitbeasts-content {
+            padding: 38px;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(139, 92, 246, 0.16);
+            border: 1px solid rgba(139, 92, 246, 0.42);
+            color: #c4b5fd;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .bitbeasts-content h2 {
+            margin: 0;
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1;
+        }
+
+        .bitbeasts-content > p {
+            max-width: 850px;
+            color: var(--text-secondary);
+            font-size: 17px;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: 28px 0;
+        }
+
+        .feature {
+            padding: 16px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--card);
+            font-weight: 800;
+            text-align: center;
+        }
+
+        /* Contact */
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 25px;
+            padding: 34px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(35, 53, 84, 0.85), rgba(18, 28, 45, 0.95));
+        }
+
+        .contact-box h2 {
+            margin: 0 0 8px;
+            font-size: 34px;
+        }
+
+        .contact-box p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 34px 20px;
+            text-align: center;
+            color: #7f8da3;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 900px) {
+            .about-grid,
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-list,
+            .skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contact-box .button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav-content {
+                justify-content: center;
+                padding: 14px 0;
+            }
+
+            .brand {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .vfx-image {
+                height: 270px;
+            }
+
+            .feature-list,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bitbeasts-content {
+                padding: 26px;
+            }
+
+            .bitbeasts-image {
+                min-height: 280px;
+                padding: 16px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Fellor</h1>
-    <p>Pixel Art VFX Artist · Co-owner of BitBlast Studio</p>
-</header>
+    <nav>
+        <div class="container nav-content">
+            <a class="brand" href="#home">Fellor<span>.</span></a>
 
-<main>
-
-    <section class="card">
-        <h2>About Me</h2>
-
-        <p>
-            Hello! I'm Fellor, a pixel artist and animator from Hungary,
-            specializing in high-quality pixel art visual effects for games.
-        </p>
-
-        <p>
-            I have nearly 3 years of experience using Aseprite to create
-            detailed, energetic and readable animations. I am also one of the
-            owners of BitBlast Studio, where I work on the visuals and animations
-            for our game projects.
-        </p>
-
-        <p>
-            My asset packs are designed for easy integration into Unity projects
-            and include organized files, prefabs and clear documentation.
-        </p>
-    </section>
-
-    <section class="card">
-        <h2>Skills</h2>
-
-        <div class="skills">
-            <div class="skill">Pixel Art Animation</div>
-            <div class="skill">Visual Effects</div>
-            <div class="skill">Aseprite</div>
-            <div class="skill">Unity Asset Creation</div>
-            <div class="skill">Game Development</div>
-            <div class="skill">Character Animation</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#vfx">VFX Packs</a>
+                <a href="#bitbeasts">BitBeasts</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
-    </section>
+    </nav>
 
-    <section class="card">
-        <h2>Featured Work</h2>
+    <header class="hero" id="home">
+        <div class="container hero-inner">
+            <div class="eyebrow">Pixel Art Animator & VFX Artist</div>
 
-        <div class="gallery">
+            <h1>Fellor</h1>
 
-            <div class="gallery-item">
-                <img src="images/void-vfx.png" alt="Void pixel art visual effects">
-                <p>Void VFX Pack</p>
+            <h2>
+                Pixel Art VFX Artist and
+                <span>Co-owner of BitBlast Studio</span>
+            </h2>
+
+            <p class="hero-description">
+                I create detailed pixel art visual effects, animations and
+                production-ready game assets using Aseprite and Unity.
+            </p>
+
+            <div class="hero-buttons">
+                <a class="button button-primary" href="#vfx">
+                    View VFX Packs
+                </a>
+
+                <a class="button button-secondary" href="#bitbeasts">
+                    View BitBeasts
+                </a>
+
+                <a class="button button-secondary" href="#contact">
+                    Contact
+                </a>
             </div>
-
-            <div class="gallery-item">
-                <img src="images/water-vfx.png" alt="Water pixel art visual effects">
-                <p>Water VFX Pack</p>
-            </div>
-
-            <div class="gallery-item">
-                <img src="images/lightning-vfx.png" alt="Lightning pixel art visual effects">
-                <p>Lightning VFX Pack</p>
-            </div>
-
-            <div class="gallery-item">
-                <img src="images/bitbeasts.png" alt="BitBeasts game artwork">
-                <p>BitBeasts</p>
-            </div>
-
         </div>
-    </section>
+    </header>
 
-    <section class="card">
-        <h2>Contact</h2>
+    <main>
 
-        <p>
-            For support, business inquiries or collaboration:
-        </p>
+        <section id="about">
+            <div class="container">
 
-        <p>
-            <a class="email" href="mailto:noisiboy9876@gmail.com">
-                noisiboy9876@gmail.com
-            </a>
-        </p>
-    </section>
+                <div class="section-heading">
+                    <p class="section-label">About</p>
+                    <h2>Pixel art built for games</h2>
 
-    <div class="buttons">
-        <a class="button" href="IDE_JÖN_A_SAJÁT_UNITY_LINKED" target="_blank">
-            Unity Asset Store
-        </a>
+                    <p>
+                        I specialize in readable, energetic and polished pixel art
+                        effects designed for practical use in game projects.
+                    </p>
+                </div>
 
-        <a class="button" href="IDE_JÖN_A_SAJÁT_ITCH_LINKED" target="_blank">
-            itch.io Portfolio
-        </a>
-    </div>
+                <div class="about-grid">
 
-</main>
+                    <div class="panel">
+                        <h3>About Me</h3>
 
-<footer>
-    © 2026 Fellor · BitBlast Studio
-</footer>
+                        <p>
+                            Hello! I'm Fellor, a Hungarian pixel artist and animator
+                            with nearly three years of experience working in Aseprite.
+                        </p>
+
+                        <p>
+                            I specialize in high-quality pixel art visual effects,
+                            animation and game assets. My VFX packs are designed to
+                            integrate smoothly into Unity projects and include
+                            organized files, prefabs and clear documentation.
+                        </p>
+
+                        <p>
+                            I am also one of the co-owners of BitBlast Studio, where
+                            I work on visual design, animation, effects and other
+                            graphical elements for our game projects.
+                        </p>
+                    </div>
+
+                    <div class="panel stats">
+                        <div class="stat">
+                            <strong>Nearly 3 Years</strong>
+                            <span>Aseprite experience</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>10 VFX Packs</strong>
+                            <span>Pixel art effect collections</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>Unity Ready</strong>
+                            <span>Organized prefabs and files</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>BitBlast Studio</strong>
+                            <span>Co-owner and visual artist</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="vfx-section" id="vfx">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">Portfolio</p>
+                    <h2>Pixel Art VFX Packs</h2>
+
+                    <p>
+                        A collection of animated effects created for indie developers,
+                        Unity projects, action games, RPGs and other pixel art titles.
+                    </p>
+                </div>
+
+                <div class="gallery">
+
+                    <article class="vfx-card">
+                        <div class="vfx-image">
+                            <img src="images/water-vfx.gif" alt="Water VFX Pack animation">
+                        </div>
+                        <div class="vfx-info">
+                            <h3>Water VFX Pack</h3>
+                            <p>Animated water impacts, splashes and aquatic effects.</p>
+                        </div>
+                    </article>
+
+                    <article class="vfx-card">
+                        <div class="vfx-image">
+                            <img src="images/holy-vfx.gif" alt="Holy VFX Pack animation">
+                        </div>
+                        <div class="vfx-info">
+                            <h3>Holy VFX Pack</h3>
+                            <p>Radiant, divine and light-based pixel art effects.</p>
+                        </div>
+                    </article>
+
+                    <article class="vfx-card">
+                        <div class="vfx-image">
+                            <img src="images/void-vfx.gif" alt="Void VFX Pack animation">
+                        </div>
+                        <div class="vfx-info">
+                            <h3>Void VFX Pack</h3>
+                            <p>Dark dimensional energy, portals and void attacks.</p>
+                        </div>
+                    </article>
+
+                    <article class="vfx-card">
+                        <div class="vfx-image">
+                            <img src="images/crystal-vfx.gif" alt="Crystal VFX Pack animation">
+                        </div>
+                        <div class="vfx-info">
+                            <h3>Crystal VFX Pack</h3>
+                            <p>Sharp magical crystals, impacts and crystalline bursts.</p>
+                        </div>
+                    </article>
+
+                    <article class="vfx-card">
+                        <div class="vfx-image">
+                            <img src="images/ice-vfx.gif" alt="Ice VFX Pack animation">
+                        </div>
+                        <div class="vfx-info">
+                            <h3>Ice VFX Pack</h3>
+                            <p>Frozen attacks, ice spikes, impacts and cold effects.</p>
+                        </div>
+                    </article>
+
+                    <article class="vfx-card">
+                        <div class="vfx-image">
+                            <img src="images/earth-vfx.gif" alt="Earth VFX Pack animation">
+                        </div>
+                        <div class="vfx-info">
+                            <h3>Earth VFX Pack</h3>
+                            <p>Rock eruptions, ground impacts and natural energy.</p>
+                        </div>
+                    </article>
+
+                    <article class="vfx-card">
+                        <div class="vfx-image">
+                            <img src="images/lightning-vfx.gif" alt="Lightning VFX Pack animation">
+                        </div>
+                        <div class="vfx-info">
+                            <h3>Lightning VFX Pack</h3>
+                            <p>Electric attacks, energy bursts and lightning effects.</p>
+                        </div>
+                    </article>
+
+                    <article class="vfx-card">
+                        <div class="vfx-image">
+                            <img src="images/fire-vfx.gif" alt="Fire VFX Pack animation">
+                        </div>
+                        <div class="vfx-info">
+                            <h3>Fire VFX Pack</h3>
+                            <p>Explosions, fire attacks and intense burning effects.</p>
+                        </div>
+                    </article>
+
+                    <article class="vfx-card">
+                        <div class="vfx-image">
+                            <img src="images/smoke-vfx.gif" alt="Smoke VFX Pack animation">
+                        </div>
+                        <div class="vfx-info">
+                            <h3>Smoke VFX Pack</h3>
+                            <p>Animated smoke clouds, impacts and atmospheric effects.</p>
+                        </div>
+                    </article>
+
+                    <article class="vfx-card">
+                        <div class="vfx-image">
+                            <img src="images/poison-vfx.gif" alt="Poison VFX Pack animation">
+                        </div>
+                        <div class="vfx-info">
+                            <h3>Poison VFX Pack</h3>
+                            <p>Toxic attacks, corrosive energy and poison effects.</p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="hero-buttons">
+                    <a
+                        class="button button-primary"
+                        href="IDE_ILLESZD_BE_A_SAJAT_ITCH_IO_LINKED"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View My itch.io Store
+                    </a>
+
+                    <a
+                        class="button button-secondary"
+                        href="IDE_ILLESZD_BE_A_SAJAT_UNITY_PUBLISHER_LINKED"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View Unity Assets
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="bitbeasts">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">Main Project</p>
+                    <h2>BitBeasts</h2>
+
+                    <p>
+                        The primary game project of BitBlast Studio, developed
+                        separately from my commercial VFX asset collections.
+                    </p>
+                </div>
+
+                <article class="bitbeasts-wrapper">
+
+                    <div class="bitbeasts-image">
+                        <img
+                            src="images/bitbeasts.gif"
+                            alt="BitBeasts gameplay animation"
+                        >
+                    </div>
+
+                    <div class="bitbeasts-content">
+                        <span class="featured-badge">Featured Game Project</span>
+
+                        <h2>BitBeasts</h2>
+
+                        <p>
+                            BitBeasts is a challenging roguelite space shooter
+                            developed by BitBlast Studio. The game combines intense
+                            space combat, evolving ships, companions, boss battles
+                            and a unique creature-merging progression system.
+                        </p>
+
+                        <p>
+                            As one of the co-owners of BitBlast Studio, I am
+                            responsible for a major part of the game's visual
+                            identity, including pixel art, animation, visual effects
+                            and graphical asset production.
+                        </p>
+
+                        <div class="feature-list">
+                            <div class="feature">Pixel Art Visuals</div>
+                            <div class="feature">Roguelite Space Combat</div>
+                            <div class="feature">Boss Battles</div>
+                            <div class="feature">Playable Ships</div>
+                            <div class="feature">Companion System</div>
+                            <div class="feature">Creature Merging</div>
+                        </div>
+
+                        <a
+                            class="button button-primary"
+                            href="IDE_ILLESZD_BE_A_BITBEASTS_STEAM_LINKJET"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View BitBeasts on Steam
+                        </a>
+                    </div>
+
+                </article>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">Capabilities</p>
+                    <h2>Skills and Tools</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card">Pixel Art Animation</div>
+                    <div class="skill-card">Pixel Art VFX</div>
+                    <div class="skill-card">Aseprite</div>
+                    <div class="skill-card">Unity Asset Creation</div>
+                    <div class="skill-card">Character Animation</div>
+                    <div class="skill-card">Game Development</div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+
+                <div class="contact-box">
+                    <div>
+                        <h2>Contact</h2>
+
+                        <p>
+                            For customer support, business inquiries,
+                            commissions or collaboration.
+                        </p>
+                    </div>
+
+                    <a
+                        class="button button-primary"
+                        href="mailto:noisiboy9876@gmail.com"
+                    >
+                        noisiboy9876@gmail.com
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 Fellor · Co-owner of BitBlast Studio
+    </footer>
 
 </body>
 </html>

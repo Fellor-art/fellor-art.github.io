@@ -320,11 +320,12 @@
         }
 
         .vfx-image {
-            height: 310px;
+            height: 260px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 18px;
+            padding: 0px;
+            overflow: hidden;
             background:
                 linear-gradient(45deg, #0a0f19 25%, transparent 25%),
                 linear-gradient(-45deg, #0a0f19 25%, transparent 25%),
@@ -337,8 +338,9 @@
         }
 
         .vfx-image img {
-            width: 100%;
+            width: auto;
             height: 100%;
+            max-width: 100%;
             object-fit: contain;
             image-rendering: pixelated;
         }
@@ -777,7 +779,7 @@
                 <div class="hero-buttons">
                     <a
                         class="button button-primary"
-                        href="https://store.steampowered.com/app/3369220/BitBeasts/"
+                        href="https://fellor.itch.io/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

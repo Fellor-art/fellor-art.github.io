@@ -3,144 +3,248 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Fellor | Pixel Art VFX Artist</title>
 
 <style>
-body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#111827;
-    color:white;
+* {
+    box-sizing: border-box;
 }
 
-header{
-    padding:70px 20px;
-    text-align:center;
-    background:linear-gradient(135deg,#6d28d9,#2563eb);
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+    line-height: 1.6;
 }
 
-header h1{
-    font-size:56px;
-    margin:0;
+header {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
 }
 
-header h2{
-    margin-top:15px;
-    font-weight:normal;
-    opacity:.9;
+header h1 {
+    margin: 0;
+    font-size: 64px;
 }
 
-section{
-    max-width:1000px;
-    margin:auto;
-    padding:50px 20px;
+header p {
+    margin: 10px 0 0;
+    font-size: 22px;
+    opacity: 0.92;
 }
 
-.card{
-    background:#1f2937;
-    padding:25px;
-    border-radius:15px;
-    margin-bottom:25px;
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 20px;
 }
 
-h3{
-    color:#60a5fa;
+.card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
-.button{
-    display:inline-block;
-    margin:10px;
-    padding:14px 26px;
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
-    font-weight:bold;
+h2 {
+    margin-top: 0;
+    color: #60a5fa;
 }
 
-.button:hover{
-    background:#1d4ed8;
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
 }
 
-footer{
-    text-align:center;
-    padding:30px;
-    opacity:.7;
+.skill {
+    background: #273449;
+    padding: 14px 16px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.gallery-item {
+    background: #273449;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
+.gallery-item p {
+    margin: 0;
+    padding: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-block;
+    margin: 8px;
+    padding: 14px 24px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.email {
+    color: #93c5fd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    color: #94a3b8;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 46px;
+    }
+
+    header p {
+        font-size: 18px;
+    }
+
+    .card {
+        padding: 22px;
+    }
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
-
-<h1>Fellor</h1>
-
-<h2>Pixel Art VFX Artist & BitBlast Studio</h2>
-
+    <h1>Fellor</h1>
+    <p>Pixel Art VFX Artist · Co-owner of BitBlast Studio</p>
 </header>
 
-<section>
+<main>
 
-<div class="card">
+    <section class="card">
+        <h2>About Me</h2>
 
-<h3>About Me</h3>
+        <p>
+            Hello! I'm Fellor, a pixel artist and animator from Hungary,
+            specializing in high-quality pixel art visual effects for games.
+        </p>
 
-<p>
-Hello!
-I'm Fellor, a pixel artist specializing in high-quality Pixel Art VFX for Unity.
-I have nearly 2 years of experience creating visual effects in Aseprite.
-My assets are designed for easy integration into Unity projects with organized prefabs and clean documentation.
-</p>
+        <p>
+            I have nearly 3 years of experience using Aseprite to create
+            detailed, energetic and readable animations. I am also one of the
+            owners of BitBlast Studio, where I work on the visuals and animations
+            for our game projects.
+        </p>
 
-</div>
+        <p>
+            My asset packs are designed for easy integration into Unity projects
+            and include organized files, prefabs and clear documentation.
+        </p>
+    </section>
 
-<div class="card">
+    <section class="card">
+        <h2>Skills</h2>
 
-<h3>Skills</h3>
+        <div class="skills">
+            <div class="skill">Pixel Art Animation</div>
+            <div class="skill">Visual Effects</div>
+            <div class="skill">Aseprite</div>
+            <div class="skill">Unity Asset Creation</div>
+            <div class="skill">Game Development</div>
+            <div class="skill">Character Animation</div>
+        </div>
+    </section>
 
-<ul>
-<li>Pixel Art Animation</li>
-<li>Unity VFX Assets</li>
-<li>Aseprite</li>
-<li>Game Development</li>
-<li>BitBlast Studio</li>
-</ul>
+    <section class="card">
+        <h2>Featured Work</h2>
 
-</div>
+        <div class="gallery">
 
-<div class="card">
+            <div class="gallery-item">
+                <img src="images/void-vfx.png" alt="Void pixel art visual effects">
+                <p>Void VFX Pack</p>
+            </div>
 
-<h3>Contact</h3>
+            <div class="gallery-item">
+                <img src="images/water-vfx.png" alt="Water pixel art visual effects">
+                <p>Water VFX Pack</p>
+            </div>
 
-<p>
+            <div class="gallery-item">
+                <img src="images/lightning-vfx.png" alt="Lightning pixel art visual effects">
+                <p>Lightning VFX Pack</p>
+            </div>
 
-Email:<br>
-<b>noisiboy9876@gmail.com</b>
+            <div class="gallery-item">
+                <img src="images/bitbeasts.png" alt="BitBeasts game artwork">
+                <p>BitBeasts</p>
+            </div>
 
-</p>
+        </div>
+    </section>
 
-</div>
+    <section class="card">
+        <h2>Contact</h2>
 
-<div style="text-align:center;">
+        <p>
+            For support, business inquiries or collaboration:
+        </p>
 
-<a class="button" href="https://assetstore.unity.com/" target="_blank">
-Unity Asset Store
-</a>
+        <p>
+            <a class="email" href="mailto:noisiboy9876@gmail.com">
+                noisiboy9876@gmail.com
+            </a>
+        </p>
+    </section>
 
-<a class="button" href="https://itch.io/" target="_blank">
-itch.io
-</a>
+    <div class="buttons">
+        <a class="button" href="IDE_JÖN_A_SAJÁT_UNITY_LINKED" target="_blank">
+            Unity Asset Store
+        </a>
 
-</div>
+        <a class="button" href="IDE_JÖN_A_SAJÁT_ITCH_LINKED" target="_blank">
+            itch.io Portfolio
+        </a>
+    </div>
 
-</section>
+</main>
 
 <footer>
-
-© 2026 Fellor
-
+    © 2026 Fellor · BitBlast Studio
 </footer>
 
 </body>
